@@ -25,7 +25,7 @@ export function InfoModal() {
       {isOpen && (
         <div className="fixed inset-0 z-100 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
           {/* Modal Container */}
-          <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl p-6 md:p-8 transition-all
+          <div className="relative w-[95%] md:max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl p-6 md:p-8 transition-all
             bg-white text-gray-900 border border-gray-200
             dark:bg-[#0d1117] dark:text-[#c9d1d9] dark:border-green-500/50 dark:shadow-[0_0_50px_rgba(34,197,94,0.1)]">
             
