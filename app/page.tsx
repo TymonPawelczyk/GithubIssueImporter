@@ -15,11 +15,13 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ImportResult | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [fileName, setFileName] = useState("");
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    setFileName(file.name);
     setError(null);
     setResult(null);
     try {
@@ -65,12 +67,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen p-8 text-sm transition-colors duration-300">
+    <main className="min-h-screen p-4 pt-20 md:p-8 text-sm transition-colors duration-300">
       <div className="max-w-5xl mx-auto rounded-lg shadow-xl p-6 border transition-all duration-300
         bg-white border-gray-200 shadow-gray-200
         dark:bg-[#161b22] dark:border-gray-700 dark:shadow-green-900/10">
         
-        <h1 className="text-3xl font-bold mb-8 pb-4 border-b tracking-wider flex items-center
+        <h1 className="text-lg md:text-3xl font-bold mb-8 pb-4 border-b tracking-tight md:tracking-wider flex items-center
           text-indigo-600 border-gray-200
           dark:text-green-400 dark:border-gray-800 dark:font-mono">
           
@@ -104,7 +106,15 @@ export default function Home() {
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
             />
             <p className="text-xs mt-1 text-gray-400">
-              {t.home.tokenHelp}
+              {t.home.tokenHelp}{" "}
+              <a 
+                href="https://github.com/settings/tokens/new?scopes=repo,project" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-indigo-600 hover:underline dark:text-green-400"
+              >
+                {t.home.tokenCreateLabel} &rarr;
+              </a>
             </p>
           </div>
 
@@ -160,15 +170,20 @@ export default function Home() {
             text-gray-500 dark:text-green-500/80">
             {t.home.fileLabel}
           </label>
-          <input
-            type="file"
-            accept=".csv, .xlsx, .xls"
-            onChange={handleFileUpload}
-            className="block w-full text-sm cursor-pointer
-              file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-bold file:cursor-pointer
-              text-gray-500 file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200
-              dark:text-gray-400 dark:file:bg-green-900/20 dark:file:text-green-400 dark:group-hover:file:bg-green-900/40 dark:hover:file:bg-green-900/40"
-          />
+          <div className="flex items-center gap-4">
+            <label className="cursor-pointer px-4 py-2 rounded text-sm font-bold uppercase tracking-wide transition bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-green-900/20 dark:text-green-400 dark:hover:bg-green-900/40">
+              {t.home.chooseFile}
+              <input
+                type="file"
+                accept=".csv, .xlsx, .xls"
+                onChange={handleFileUpload}
+                className="hidden"
+              />
+            </label>
+            <span className="text-gray-500 dark:text-gray-400 italic">
+              {fileName || t.home.noFileSelected}
+            </span>
+          </div>
           <p className="text-xs mt-3
             text-gray-500 dark:text-gray-600 font-mono">
             {t.home.fileHelp}
@@ -245,7 +260,7 @@ export default function Home() {
                 </div>
              )}
              <button 
-                onClick={() => { setResult(null); setRows([]); }}
+                onClick={() => { setResult(null); setRows([]); setFileName(""); }}
                 className="mt-4 text-xs transition hover:underline
                   text-gray-500 hover:text-indigo-600
                   dark:text-gray-500 dark:hover:text-green-400"
