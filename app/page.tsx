@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { parseFileToRows } from "@/lib/parse";
 import { ImportRow, ImportResult } from "@/lib/types";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Home() {
+  const { t } = useLanguage();
   const [token, setToken] = useState("");
   const [owner, setOwner] = useState("");
   const [repo, setRepo] = useState("");
@@ -81,7 +83,7 @@ export default function Home() {
 
           {/* Light Mode Title (Clean Style) */}
           <span className="dark:hidden">
-            GitHub Issue Importer
+            {t.home.title}
           </span>
         </h1>
 
@@ -90,30 +92,30 @@ export default function Home() {
           <div className="md:col-span-3">
             <label className="block mb-2 text-xs uppercase tracking-widest font-bold
               text-gray-500 dark:text-green-500/80">
-              Personal Access Token <span className="text-red-500">*</span>
+              {t.home.tokenLabel} <span className="text-red-500">*</span>
             </label>
             <input
               type="password"
               value={token}
               onChange={(e) => setToken(e.target.value)}
-              placeholder="ghp_..."
+              placeholder={t.home.tokenPlaceholder}
               className="w-full rounded p-2.5 outline-none transition border font-mono
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
             />
             <p className="text-xs mt-1 text-gray-400">
-              Token is used only for this request and is not stored. Requires `repo` and `project` scopes.
+              {t.home.tokenHelp}
             </p>
           </div>
 
           <div>
             <label className="block mb-2 text-xs uppercase tracking-widest font-bold
-              text-gray-500 dark:text-green-500/80">Repo Owner</label>
+              text-gray-500 dark:text-green-500/80">{t.home.ownerLabel}</label>
             <input
               type="text"
               value={owner}
               onChange={(e) => setOwner(e.target.value)}
-              placeholder="Your GitHub username"
+              placeholder={t.home.ownerPlaceholder}
               className="w-full rounded p-2.5 outline-none transition border
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
@@ -121,12 +123,12 @@ export default function Home() {
           </div>
           <div>
             <label className="block mb-2 text-xs uppercase tracking-widest font-bold
-              text-gray-500 dark:text-green-500/80">Repo Name</label>
+              text-gray-500 dark:text-green-500/80">{t.home.repoLabel}</label>
             <input
               type="text"
               value={repo}
               onChange={(e) => setRepo(e.target.value)}
-              placeholder="Your repository name"
+              placeholder={t.home.repoPlaceholder}
               className="w-full rounded p-2.5 outline-none transition border
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
@@ -135,13 +137,13 @@ export default function Home() {
           <div>
             <label className="block mb-2 text-xs uppercase tracking-widest font-bold
               text-gray-500 dark:text-green-500/80">
-              Project ID <span className="font-normal text-gray-400 normal-case">(Optional)</span>
+              {t.home.projectLabel} <span className="font-normal text-gray-400 normal-case">(Optional)</span>
             </label>
             <input
               type="number"
               value={projectNumber}
               onChange={(e) => setProjectNumber(e.target.value)}
-              placeholder="e.g. 12"
+              placeholder={t.home.projectPlaceholder}
               className="w-full rounded p-2.5 outline-none transition border
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
@@ -156,7 +158,7 @@ export default function Home() {
           dark:bg-[#0d1117]/50 dark:border-gray-700 dark:hover:border-green-500/50 dark:hover:bg-green-900/10">
           <label className="block mb-4 text-xs uppercase tracking-widest font-bold
             text-gray-500 dark:text-green-500/80">
-            Source File (CSV / XLSX)
+            {t.home.fileLabel}
           </label>
           <input
             type="file"
@@ -169,7 +171,7 @@ export default function Home() {
           />
           <p className="text-xs mt-3
             text-gray-500 dark:text-gray-600 font-mono">
-            Required: <span className="text-gray-700 dark:text-gray-400">Title</span>. Optional: Description, Labels, Assignee, Milestone.
+            {t.home.fileHelp}
           </p>
         </div>
 
@@ -178,7 +180,7 @@ export default function Home() {
           <div className="p-4 mb-6 rounded border
             bg-red-50 border-red-200 text-red-700
             dark:bg-red-900/20 dark:border-red-500/50 dark:text-red-400">
-            <span className="font-bold mr-2">[ERROR]</span> {error}
+            <span className="font-bold mr-2">{t.common.error}</span> {error}
           </div>
         )}
 
@@ -188,7 +190,7 @@ export default function Home() {
             bg-gray-50 border-gray-200
             dark:bg-[#0d1117] dark:border-gray-700">
             <span className="text-gray-600 dark:text-gray-400">
-              Loaded <strong className="text-gray-900 dark:text-white">{rows.length}</strong> rows.
+              <strong className="text-gray-900 dark:text-white">{t.home.loadedRows(rows.length)}</strong>
             </span>
             <button
               onClick={handleImport}
@@ -198,7 +200,7 @@ export default function Home() {
                   ? "bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed dark:bg-gray-800 dark:text-gray-500 dark:border-gray-700" 
                   : "bg-indigo-600 text-white border-indigo-600 hover:bg-indigo-700 hover:border-indigo-700 dark:bg-green-600/10 dark:text-green-400 dark:border-green-500 dark:hover:bg-green-600 dark:hover:text-white dark:shadow-[0_0_10px_rgba(34,197,94,0.3)]"}`}
             >
-              {loading ? "Processing..." : "Execute Import"}
+              {loading ? t.common.processing : t.common.executeImport}
             </button>
           </div>
         )}
@@ -210,22 +212,22 @@ export default function Home() {
             dark:bg-[#0d1117] dark:border-gray-700">
             <h3 className="font-bold text-lg mb-4 pb-2 border-b
               text-gray-800 border-gray-200
-              dark:text-gray-200 dark:border-gray-800">Execution Report</h3>
+              dark:text-gray-200 dark:border-gray-800">{t.home.reportTitle}</h3>
             
             <div className="flex gap-6 mb-4">
               <span className="font-bold flex items-center text-green-600 dark:text-green-400">
                 <span className="w-2 h-2 rounded-full mr-2 bg-green-600 dark:bg-green-500"></span>
-                Created: {result.created.length}
+                {t.home.created}: {result.created.length}
               </span>
               <span className="font-bold flex items-center text-red-600 dark:text-red-400">
                 <span className={`w-2 h-2 rounded-full mr-2 ${result.errors.length > 0 ? "bg-red-600 dark:bg-red-500" : "bg-gray-400 dark:bg-gray-700"}`}></span>
-                Errors: {result.errors.length}
+                {t.home.errors}: {result.errors.length}
               </span>
             </div>
 
             {result.errors.length > 0 && (
               <div className="mb-4">
-                <h4 className="font-bold text-xs uppercase mb-2 text-red-600 dark:text-red-500">Error Logs:</h4>
+                <h4 className="font-bold text-xs uppercase mb-2 text-red-600 dark:text-red-500">{t.home.errorLogs}</h4>
                 <div className="p-3 rounded border max-h-40 overflow-y-auto font-mono text-xs
                   bg-white border-red-200 text-red-700
                   dark:bg-black dark:border-red-900/30 dark:text-red-400">
@@ -239,7 +241,7 @@ export default function Home() {
             )}
              {result.created.length > 0 && (
                 <div className="mt-2 text-xs text-gray-500">
-                    Last Created: <a href={result.created[result.created.length-1].url} target="_blank" className="hover:underline text-indigo-600 dark:text-green-400">#{result.created[result.created.length-1].issueNumber}</a>
+                    {t.home.lastCreated} <a href={result.created[result.created.length-1].url} target="_blank" className="hover:underline text-indigo-600 dark:text-green-400">#{result.created[result.created.length-1].issueNumber}</a>
                 </div>
              )}
              <button 
@@ -248,7 +250,7 @@ export default function Home() {
                   text-gray-500 hover:text-indigo-600
                   dark:text-gray-500 dark:hover:text-green-400"
              >
-                &lt; Clear and Reset
+                {t.common.clearReset}
              </button>
           </div>
         )}
@@ -260,18 +262,18 @@ export default function Home() {
             <div className="p-2 border-b text-xs uppercase font-bold tracking-wider
               bg-gray-50 border-gray-200 text-gray-500
               dark:bg-[#0d1117] dark:border-gray-700">
-              Data Preview (First 50)
+              {t.home.dataPreview}
             </div>
             <table className="min-w-full text-xs text-left">
               <thead className="
                 bg-gray-100 text-gray-600
                 dark:bg-[#161b22] dark:text-gray-400">
                 <tr>
-                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">#</th>
-                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">Title</th>
-                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">Labels</th>
-                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">Assignee</th>
-                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">Milestone</th>
+                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">{t.home.tableHeaders.number}</th>
+                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">{t.home.tableHeaders.title}</th>
+                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">{t.home.tableHeaders.labels}</th>
+                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">{t.home.tableHeaders.assignee}</th>
+                  <th className="p-3 border-b border-gray-200 dark:border-gray-700">{t.home.tableHeaders.milestone}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
@@ -299,7 +301,7 @@ export default function Home() {
                 <div className="p-2 text-center text-xs border-t
                   bg-gray-50 border-gray-200 text-gray-500
                   dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-600">
-                  ...and {rows.length - 50} more.
+                  {t.home.moreRows(rows.length - 50)}
                 </div>
             )}
           </div>
@@ -309,7 +311,7 @@ export default function Home() {
       <footer className="mt-8 text-center text-xs tracking-widest uppercase transition-colors duration-300
         text-gray-400
         dark:text-green-900/60">
-        © TymonPawelczyk 2026
+        {t.common.footer}
       </footer>
     </main>
   );

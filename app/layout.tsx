@@ -3,6 +3,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { InfoModal } from "@/components/InfoModal";
+import { LanguageProvider } from "@/components/LanguageProvider";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export const metadata: Metadata = {
   title: "GitHub Issue Importer",
@@ -18,12 +20,15 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body>
         <ThemeProvider>
-          {/* Top Right Controls */}
-          <div className="fixed top-4 right-4 z-50 flex items-center gap-3">
-            <InfoModal />
-            <ThemeToggle />
-          </div>
-          {children}
+          <LanguageProvider>
+            {/* Top Right Controls */}
+            <div className="fixed top-4 right-4 z-50 flex items-center gap-3">
+              <LanguageSwitcher />
+              <InfoModal />
+              <ThemeToggle />
+            </div>
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
