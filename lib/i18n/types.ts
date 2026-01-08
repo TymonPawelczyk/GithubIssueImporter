@@ -14,6 +14,7 @@ export type Dictionary = {
     tokenLabel: string;
     tokenPlaceholder: string;
     tokenHelp: string;
+    tokenCreateLabel: string;
     ownerLabel: string;
     ownerPlaceholder: string;
     repoLabel: string;
