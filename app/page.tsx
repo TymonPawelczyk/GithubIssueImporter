@@ -113,7 +113,7 @@ export default function Home() {
               type="text"
               value={owner}
               onChange={(e) => setOwner(e.target.value)}
-              placeholder="np. facebook"
+              placeholder="Your GitHub username"
               className="w-full rounded p-2.5 outline-none transition border
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
@@ -126,7 +126,7 @@ export default function Home() {
               type="text"
               value={repo}
               onChange={(e) => setRepo(e.target.value)}
-              placeholder="np. react"
+              placeholder="Your repository name"
               className="w-full rounded p-2.5 outline-none transition border
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
@@ -141,11 +141,11 @@ export default function Home() {
               type="number"
               value={projectNumber}
               onChange={(e) => setProjectNumber(e.target.value)}
-              placeholder="np. 12"
+              placeholder="e.g. 12"
               className="w-full rounded p-2.5 outline-none transition border
                 bg-gray-50 border-gray-300 text-gray-900 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 placeholder-gray-400
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
-              title="Numer projektu z URL: github.com/orgs/ORG/projects/12"
+              title="Project number from URL: github.com/orgs/ORG/projects/12"
             />
           </div>
         </div>
