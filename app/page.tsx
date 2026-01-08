@@ -72,7 +72,7 @@ export default function Home() {
         bg-white border-gray-200 shadow-gray-200
         dark:bg-[#161b22] dark:border-gray-700 dark:shadow-green-900/10">
         
-        <h1 className="text-2xl md:text-3xl font-bold mb-8 pb-4 border-b tracking-wider flex items-center
+        <h1 className="text-lg md:text-3xl font-bold mb-8 pb-4 border-b tracking-tight md:tracking-wider flex items-center
           text-indigo-600 border-gray-200
           dark:text-green-400 dark:border-gray-800 dark:font-mono">
           
