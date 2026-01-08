@@ -14,6 +14,7 @@ export const en: Dictionary = {
     tokenLabel: "Personal Access Token",
     tokenPlaceholder: "ghp_...",
     tokenHelp: "Token is used only for this request and is not stored. Requires `repo` and `project` scopes.",
+    tokenCreateLabel: "Generate one here",
     ownerLabel: "Repo Owner",
     ownerPlaceholder: "Your GitHub username",
     repoLabel: "Repo Name",

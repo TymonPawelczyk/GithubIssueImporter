@@ -14,6 +14,7 @@ export const pl: Dictionary = {
     tokenLabel: "Osobisty Token Dostępu",
     tokenPlaceholder: "ghp_...",
     tokenHelp: "Token jest używany tylko dla tego żądania i nie jest przechowywany. Wymaga uprawnień `repo` i `project`.",
+    tokenCreateLabel: "Wygeneruj go tutaj",
     ownerLabel: "Właściciel Repozytorium",
     ownerPlaceholder: "Twoja nazwa użytkownika GitHub",
     repoLabel: "Nazwa Repozytorium",
