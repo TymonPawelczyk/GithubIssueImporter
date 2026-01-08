@@ -10,7 +10,7 @@ export const es: Dictionary = {
     footer: "© TymonPawelczyk 2026",
   },
   home: {
-    title: "Importador de Problemas de GitHub",
+    title: "GitHub Issue Importer",
     tokenLabel: "Token de Acceso Personal",
     tokenPlaceholder: "ghp_...",
     tokenHelp: "El token se usa solo para esta solicitud y no se almacena. Requiere permisos `repo` i `project`.",
