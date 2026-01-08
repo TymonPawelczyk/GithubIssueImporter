@@ -1,5 +1,3 @@
-// lib/types.ts
-
 export interface ImportRow {
   title: string;
   description: string;

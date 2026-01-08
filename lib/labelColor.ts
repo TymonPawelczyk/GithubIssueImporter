@@ -1,5 +1,3 @@
-// lib/labelColor.ts
-
 /**
  * Generuje deterministyczny kolor HEX (bez #) na podstawie nazwy labela.
  * Używa hasha FNV-1a do wyboru odcienia (Hue), przy stałym nasyceniu i jasności.

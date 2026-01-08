@@ -1,4 +1,3 @@
-// lib/github.ts
 import { Octokit } from "octokit";
 import pLimit from "p-limit";
 import { ImportRow, ImportResult } from "./types";
