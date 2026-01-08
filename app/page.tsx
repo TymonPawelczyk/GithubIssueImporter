@@ -163,7 +163,7 @@ export default function Home() {
             {t.home.fileLabel}
           </label>
           <div className="flex items-center gap-4">
-            <label className="cursor-pointer bg-indigo-600 hover:bg-indigo-700 text-white dark:bg-green-600/10 dark:text-green-400 dark:border-green-500 dark:hover:bg-green-600 dark:hover:text-white px-4 py-2 rounded text-sm font-bold uppercase tracking-wide transition border shadow-sm dark:shadow-[0_0_10px_rgba(34,197,94,0.3)] border-transparent dark:border">
+            <label className="cursor-pointer px-4 py-2 rounded text-sm font-bold uppercase tracking-wide transition bg-indigo-100 text-indigo-700 hover:bg-indigo-200 dark:bg-green-900/20 dark:text-green-400 dark:hover:bg-green-900/40">
               {t.home.chooseFile}
               <input
                 type="file"
