@@ -67,12 +67,12 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen p-8 text-sm transition-colors duration-300">
+    <main className="min-h-screen p-4 pt-20 md:p-8 text-sm transition-colors duration-300">
       <div className="max-w-5xl mx-auto rounded-lg shadow-xl p-6 border transition-all duration-300
         bg-white border-gray-200 shadow-gray-200
         dark:bg-[#161b22] dark:border-gray-700 dark:shadow-green-900/10">
         
-        <h1 className="text-3xl font-bold mb-8 pb-4 border-b tracking-wider flex items-center
+        <h1 className="text-2xl md:text-3xl font-bold mb-8 pb-4 border-b tracking-wider flex items-center
           text-indigo-600 border-gray-200
           dark:text-green-400 dark:border-gray-800 dark:font-mono">
           
