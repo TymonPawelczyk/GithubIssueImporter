@@ -106,7 +106,15 @@ export default function Home() {
                 dark:bg-[#0d1117] dark:border-gray-700 dark:text-gray-300 dark:focus:border-green-500 dark:focus:ring-green-500 dark:placeholder-gray-700"
             />
             <p className="text-xs mt-1 text-gray-400">
-              {t.home.tokenHelp}
+              {t.home.tokenHelp}{" "}
+              <a 
+                href="https://github.com/settings/tokens/new?scopes=repo,project" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-indigo-600 hover:underline dark:text-green-400"
+              >
+                {t.home.tokenCreateLabel} &rarr;
+              </a>
             </p>
           </div>
 
