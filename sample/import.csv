@@ -1,0 +1,12 @@
+Title,Description,Labels,Assignee,Milestone
+Fix login bug,"**Steps to reproduce:**
+1. Go to /login page
+2. Click ""Submit"" without password
+3. *Crash*
+
+> Critical issue!",bug; high,TymonPawelczyk,v1.0
+Refactor Homepage,Update hero section according to new Figma design.,"enhancement; ui; design",,v2.0
+Database Backup,Automated daily backups script failure.,"devops; backend",,
+Review PR #42,"Please review urgently.
+Link: https://github.com/example/repo/pull/42",,TymonPawelczyk,v1.0
+Write Documentation,Create README.md and contributing guide.,documentation,,v1.0
